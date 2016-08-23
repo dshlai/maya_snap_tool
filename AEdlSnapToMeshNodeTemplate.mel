@@ -1,0 +1,31 @@
+global proc AEdlSnapToMeshNodeTemplate( string $nodeName )
+    {
+        // the following controls will be in a scrollable layout
+        editorTemplate -beginScrollLayout;
+
+            // add a bunch of common properties
+            editorTemplate -beginLayout "Snap To Mesh Attributes" -collapse 0;
+
+                editorTemplate -callCustom "AEinputNew \"Ground Mesh\"" "AEinputReplace \"Ground Mesh\"" "inputMesh";
+
+                editorTemplate -addSeparator;
+
+                editorTemplate -addControl  "inWorldPosition";
+                editorTemplate -addControl  "inWorldTranslate";
+                editorTemplate -addControl  "inLocalTranslate";
+                editorTemplate -addControl  "outTranslate" ;
+
+                editorTemplate -addSeparator;
+                editorTemplate -addControl  "weight";
+
+
+            editorTemplate -endLayout;
+
+            // include/call base class/node attributes
+            AEdependNodeTemplate $nodeName;
+
+            // add any extra attributes that have been added
+            editorTemplate -addExtraControls;
+
+        editorTemplate -endScrollLayout;
+    }
