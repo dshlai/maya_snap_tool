@@ -1,5 +1,4 @@
-
-Snap A Point to Ground
+## Snap A Point to Ground
 
 Connections:
 - Ground Geo
